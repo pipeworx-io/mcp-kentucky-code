@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-kentucky-code",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Kentucky Revised Statutes (KRS) — state statutes by citation and by topic.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-856a06bea50aefbd247ac2b0a4bb707b36db045020928b2db1ccba32d97fbcd2",
-    "sourceCommit": "eb436cf60f06c9b79701a15cd1670609580544a5"
+    "sourceHash": "v1-ae7aee2918d0ffdf15fd8404dbc8b2fcbdd60d26de292748f417d12e0eb54fec",
+    "sourceCommit": "e369dfedd93d5fcbf521281559a146302c14e1a0"
   }
 }

@@ -1310,7 +1310,15 @@ async function getSearchToken(): Promise<string> {
 async function krsSearch(phrase: string, statuteNumber: boolean): Promise<KrsHit[]> {
   const token = await getSearchToken();
   const url = new URL(SEARCH_API);
-  url.searchParams.set('searchPhrase', phrase);
+  // 2026-10-08: LRC's search stopped matching a bare phrase and now returns
+  // "[]" for anything unquoted — "theft", "landlord", and even a citation like
+  // 514.030 all came back empty while the quoted forms returned 15, 72 and 10
+  // hits. The pack had treated that "[]" as an honest no-match, so ky_search
+  // went silently empty for 11 callers in a morning and ky_statute reported
+  // real sections as citation_not_found. Send the phrase as a quoted literal;
+  // strip any quotes the caller already added so we never double-wrap.
+  const quoted = `"${phrase.replace(/"/g, '').trim()}"`;
+  url.searchParams.set('searchPhrase', quoted);
   url.searchParams.set('statuteRange', 'true');
   url.searchParams.set('startRange', '1');
   url.searchParams.set('endRange', '999');
