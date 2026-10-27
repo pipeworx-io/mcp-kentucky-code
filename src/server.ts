@@ -10,7 +10,7 @@ import pack from './index.js';
 
 
 const server = new Server(
-  { name: '@pipeworx/mcp-kentucky-code', version: '0.1.5' },
+  { name: '@pipeworx/mcp-kentucky-code', version: '0.1.6' },
   { capabilities: { tools: {} } },
 );
 
